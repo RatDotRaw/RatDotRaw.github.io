@@ -36,9 +36,14 @@ h6 {
     font-size: 10.72px;
 }
 
-/* a {
-
-} */
+a .button {
+	border: 2px solid #04AA6D;
+	padding: 10px 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+}
 
 /* abbr {
 
@@ -60,9 +65,19 @@ h6 {
 
 } */
 
-/* code {
+.code-block {
+    background-color: #d0d0d0;
+    color: #000000;
+    padding: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 14px;
+    border-radius: 8px;
+}
+.code, .code-block p {
+    margin: 0px;
+}
+  
 
-} */
 
 /* del {
 
