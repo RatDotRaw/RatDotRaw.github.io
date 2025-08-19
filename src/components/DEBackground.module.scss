@@ -1,0 +1,70 @@
+$wave-width: 250%;
+$wave-height: 200%;
+$wave-colors: linear-gradient(744deg, #af40ff, #5b42f3 60%, #00ddeb);
+$wave-opacity: 0.6;
+$wave-squash-factor: 0.5;
+$initial-wave-rotation: 55s;
+$wave-2-rotation: 65s;
+$wave-3-rotation: 75s;
+
+.backgroundWaves {
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  overflow: hidden;
+  background-color: rebeccapurple;
+}
+
+.wrapper {
+  position: absolute;
+  width: $wave-width;
+  height: $wave-height;
+  left: 50%;
+  bottom: -125%;
+  margin-left: calc(-1 * $wave-width / 2);
+  margin-top: calc(-1 * $wave-height / 2);
+  transform: scaleY($wave-squash-factor);
+  
+  // This is the correct way to target the child wave
+  .wave {
+    animation-duration: $initial-wave-rotation;
+  }
+
+  &:nth-child(2) {
+    bottom: -1%;
+    left: 45%;
+    .wave {
+      animation-duration: $wave-2-rotation;
+    }
+  }
+
+  &:nth-child(3) {
+    bottom: -130%;
+    left: 55%;
+    .wave {
+      animation-duration: $wave-3-rotation;
+    }
+  }
+}
+
+.wave {
+  width: 100%;
+  height: 100%;
+  background: $wave-colors;
+  border-radius: 40%;
+  opacity: $wave-opacity;
+  animation-name: wave-rotation;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes wave-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

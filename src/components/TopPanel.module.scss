@@ -1,0 +1,33 @@
+@use "../styles/variables" as *;
+
+.topPanel {
+    position: relative;
+    height: $panel-height;
+
+    background-color: $bg-color;
+    display: flex;
+    align-items: center;
+
+    > * {
+        flex-grow: 1;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: calc($panel-height/2 + 20px);
+      right: 0px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle at 0% 100%, transparent 70%, $bg-color 70%);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc($panel-height/2 + 20px);
+      left: 0px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle at 100% 100%, transparent 70%, $bg-color 70%);
+    }
+}

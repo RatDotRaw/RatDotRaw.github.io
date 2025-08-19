@@ -1,0 +1,167 @@
+@use "../styles/variables" as *;
+
+.windowBox {
+    position: absolute;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    border-radius: $border-radius;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); // otherwise windows blend together
+
+    &.active {
+        z-index: 1000;
+    }
+
+    &.inactive {
+        z-index: 100;
+    }
+
+    .windowBody {
+        flex: 1;
+        overflow: hidden;
+        background-color: $bg-color;
+    }
+}
+
+.titleBar {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    cursor: move;
+    user-select: none;
+    
+    font-size: 14px;
+
+    &.active {
+        background-color: $primary-container-color;
+        color: $accent-color;
+    }
+
+    &.inactive {
+        background-color: $bg-color;
+        color: $accent-color2;
+    }
+}
+
+.titleText {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 4px;
+}
+
+.windowButton {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2px;
+    background-color: rgb(255, 255, 255, 0.1);
+    color: $white;
+    & {
+        border-radius: 100px;
+    }
+
+    &:hover {
+        background-color: rgb(255, 255, 255, 0.3);
+    }
+
+    &.closeButton {
+        background-color: rgba(220, 20, 60, 0.1);
+    }
+    &.closeButton:hover {
+        background-color: crimson;
+        color: $white;
+    }
+}
+
+.content {
+    flex: 1;
+    overflow: auto;
+    background-color: #262626;
+}
+
+// Resize handles
+.resizeHandle {
+    position: absolute;
+    z-index: 1001;
+    // background-color: #e81123; // for testing
+
+    &.n {
+        top: -3px;
+        left: 5px;
+        right: 5px;
+        height: 8px;
+        cursor: n-resize;
+    }
+
+    &.s {
+        bottom: -3px;
+        left: 5px;
+        right: 5px;
+        height: 8px;
+        cursor: s-resize;
+    }
+
+    &.e {
+        right: -3px;
+        top: 5px;
+        bottom: 5px;
+        width: 8px;
+        cursor: e-resize;
+    }
+
+    &.w {
+        left: -3px;
+        top: 5px;
+        bottom: 5px;
+        width: 8px;
+        cursor: w-resize;
+    }
+
+    &.ne {
+        top: -3px;
+        right: -3px;
+        width: 10px;
+        height: 10px;
+        cursor: ne-resize;
+    }
+
+    &.nw {
+        top: -3px;
+        left: -3px;
+        width: 10px;
+        height: 10px;
+        cursor: nw-resize;
+    }
+
+    &.se {
+        bottom: -3px;
+        right: -3px;
+        width: 10px;
+        height: 10px;
+        cursor: se-resize;
+    }
+
+    &.sw {
+        bottom: -3px;
+        left: -3px;
+        width: 10px;
+        height: 10px;
+        cursor: sw-resize;
+    }
+}

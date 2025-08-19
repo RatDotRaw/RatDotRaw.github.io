@@ -1,0 +1,72 @@
+@use "../styles/variables" as *;
+
+.taskBar {
+    position: relative;
+    height: $panel-height;
+
+    background-color: $bg-color;
+    display: flex;
+    align-items: center;
+
+    > * {
+        height: 100%;
+        margin-right: 1rem;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: -20px;
+      right: 0px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle at 0% 0%, transparent 70%, $bg-color 70%);
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: -20px;
+      left: 0px;
+      width: 20px;
+      height: 20px;
+      background: radial-gradient(circle at 100% 0%, transparent 70%, $bg-color 70%);
+    }
+}
+
+.startButton {
+    border-radius: 0px $border-radius $border-radius 0px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.windowTabList {
+    display: flex;
+    flex-grow: 1;
+
+    .windowTab {
+        position: relative;
+        border: none;
+        color: white;
+        margin: 0 4px;
+        padding: 0 12px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 13px;
+        min-width: 120px;
+        border-radius: $border-radius;
+
+        &.active {
+            background: linear-gradient(to bottom, $accent-color, transparent);
+            // background-color: $accent-color;
+        }
+
+        background-color: $primary-container-color;
+    }
+}
