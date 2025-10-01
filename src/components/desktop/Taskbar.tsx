@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import type { WindowState } from "../types/types";
+import type { WindowState } from "../../types/types";
 import styles from "./Taskbar.module.scss";
+import { useWindowManager } from "../../contexts/WindowManagerContext";
 
 interface TaskbarProps {
   windows: WindowState[];
@@ -13,14 +14,26 @@ interface TaskbarProps {
 
 const Taskbar: React.FC<TaskbarProps> = ({
   windows,
-  activeWindowId,
-  onWindowFocus,
-  onWindowMinimize,
   onStartMenuToggle,
   isStartMenuOpen,
 }) => {
   const [time, setTime] = useState<string>();
+  const {
+    activeWindowId,
+    focusWindow,
+    minimizeWindow
+   } = useWindowManager()
 
+  const taskbarButtonAction = (window: WindowState) => {
+    console.log("win")
+    if (activeWindowId == window.id) {
+      minimizeWindow(window.id, true)
+    } else {
+      focusWindow(window.id)
+      minimizeWindow(window.id, false)
+    }
+  }
+  
   useEffect(() => {
     setInterval(() => {
       const dateObject = new Date();
@@ -30,7 +43,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
       // const second = dateObject.getSeconds();
 
       const currentTime = hour + ":" + minute; // + " : " + second;
-      console.log(currentTime);
+      // console.log(currentTime);
       setTime(currentTime);
     }, 1000);
   }, []);
@@ -54,20 +67,13 @@ const Taskbar: React.FC<TaskbarProps> = ({
         {windows.map((window) => (
           <button
             key={window.id}
-            onClick={() => {
-              if (activeWindowId === window.id) {
-                onWindowMinimize(window.id);
-              } else {
-                onWindowFocus(window.id);
-              }
-            }}
+            onClick={() => taskbarButtonAction(window)}
             className={`${styles.windowTab} ${
               activeWindowId === window.id ? styles.active : styles.inactive
             }`}
           >
             <span
               style={{
-                overflow: "hidden",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
               }}

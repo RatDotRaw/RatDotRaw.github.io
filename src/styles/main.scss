@@ -9,14 +9,16 @@
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   color: whitesmoke;
-  overflow: hidden;
+}
+
+a {
+  color: $link;
 }
 
 .desktop {
   width: 100vw;
   height: 100vh;
   position: relative;
-  overflow: hidden;
 
 //   background-color: black; // #008080;
 //   background-image: linear-gradient(

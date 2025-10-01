@@ -1,15 +1,28 @@
 import type { AppInfo } from '../types/types';
+import About from '../components/apps/About';
 import HelloWorld from '../components/apps/HelloWorld';
 import TallyCounter from '../components/apps/TallyCounter';
 import Terminal from '../components/apps/Terminal';
 
 export const apps: AppInfo[] = [
   {
-    id: 'hello-world',
+    id: 'about-me',
+    name: 'About me',
+    icon: 'huh?',
+    size: {
+      width: 650,
+      height: 800
+    },
+    component: About
+  },
+  {
+    id: 'openApp',
     name: 'Hello World',
     icon: '📄',
-    width: 600,
-    height: 800,
+    size: {
+      width: 600,
+      height: 800,
+    },
     component: HelloWorld
   },
   {

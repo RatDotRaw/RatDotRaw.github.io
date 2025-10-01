@@ -1,13 +1,15 @@
-@use "../styles/variables" as *;
+@use "../../styles/variables" as *;
 
 .windowBox {
     position: absolute;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     display: flex;
     flex-direction: column;
     border-radius: $border-radius;
+    border: 1px solid $window-bg-2;
     overflow: hidden;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7); // otherwise windows blend together
+
+    background-color: $window-bg-1;
 
     &.active {
         z-index: 1000;
@@ -19,8 +21,9 @@
 
     .windowBody {
         flex: 1;
-        overflow: hidden;
-        background-color: $bg-color;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
     }
 }
 
@@ -32,17 +35,19 @@
     padding: 0 8px;
     cursor: move;
     user-select: none;
-    
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
+    z-index: 1;
+
     font-size: 14px;
 
     &.active {
-        background-color: $primary-container-color;
-        color: $accent-color;
+        background-color: $header-focused;
+        color: $accent;
     }
 
     &.inactive {
-        background-color: $bg-color;
-        color: $accent-color2;
+        background-color: $header-unfocused;
+        color: $accent2;
     }
 }
 
@@ -81,18 +86,13 @@
     }
 
     &.closeButton {
-        background-color: rgba(220, 20, 60, 0.1);
+        background-color: rgba(220, 20, 60, 0.3);
+        color: rgb(255, 40, 80);
     }
     &.closeButton:hover {
         background-color: crimson;
         color: $white;
     }
-}
-
-.content {
-    flex: 1;
-    overflow: auto;
-    background-color: #262626;
 }
 
 // Resize handles

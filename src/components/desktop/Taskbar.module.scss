@@ -1,4 +1,4 @@
-@use "../styles/variables" as *;
+@use "../../styles/variables" as *;
 
 .taskBar {
     position: relative;
@@ -52,19 +52,21 @@
     .windowTab {
         position: relative;
         border: none;
+        border-bottom: 5px solid transparent;
+        
         color: white;
-        margin: 0 4px;
+        // margin: 0 4px;
         padding: 0 12px;
         cursor: pointer;
         display: flex;
         align-items: center;
         font-size: 13px;
         min-width: 120px;
-        border-radius: $border-radius;
 
         &.active {
-            background: linear-gradient(to bottom, $accent-color, transparent);
-            // background-color: $accent-color;
+            // background: linear-gradient(to top, $accent 0%, transparent 50%);
+            border-bottom: 5px solid $accent;
+            background-color: $window-bg-2;
         }
 
         background-color: $primary-container-color;

@@ -1,8 +1,7 @@
-@use "../styles/variables" as *;
+@use "../../styles/variables" as *;
 
 .startMenu {
   position: fixed;
-  overflow: hidden;
   bottom: 40px;
   left: 0;
   width: 300px;
@@ -15,7 +14,7 @@
 
 .header {
   padding: 12px;
-  background-color: $accent-color; 
+  background-color: $accent; 
   color: white;
   font-weight: bold;
   font-size: 16px;
@@ -23,14 +22,13 @@
 
 .appList {
   max-height: 400px;
-  overflow-Y: auto;
 
   .appItem {
     display: flex;
     align-items: center;
     padding: 1rem 1.2rem;
     cursor: pointer;
-    border-bottom: 1px solid $accent-color;
+    border-bottom: 1px solid $accent;
   
     span {
       font-size: 20px;

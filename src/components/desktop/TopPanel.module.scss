@@ -1,7 +1,6 @@
-@use "../styles/variables" as *;
+@use "../../styles/variables" as *;
 
 .topPanel {
-    position: relative;
     height: $panel-height;
 
     background-color: $bg-color;

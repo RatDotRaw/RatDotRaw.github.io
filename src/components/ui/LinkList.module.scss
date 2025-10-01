@@ -1,0 +1,38 @@
+@use "../../styles/variables" as *;
+
+.linkList {
+  border-radius: $border-radius;
+  overflow: hidden;
+
+  a {
+    display: flex;
+    flex-direction: row;
+
+    padding: 12px;
+
+    text-decoration: none;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $window-bg-1;
+    }
+
+    &:hover {
+      background-color: $accent;
+    }
+  }
+
+  .bold {
+    font-weight: 800;
+  }
+
+  p {
+    color: white;
+    margin-right: 1em;
+  }
+
+  img {
+    border-radius: 0;
+    max-width: 22px;
+    margin-right: 12px;
+  }
+}
