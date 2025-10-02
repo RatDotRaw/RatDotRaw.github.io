@@ -16,13 +16,13 @@ export const apps: AppInfo[] = [
     component: About
   },
   {
-    id: 'openApp',
+    id: 'HelloWorld',
     name: 'Hello World',
     icon: '📄',
-    size: {
-      width: 600,
-      height: 800,
-    },
+    // size: {
+    //   width: 600,
+    //   height: 800,
+    // },
     component: HelloWorld
   },
   {
