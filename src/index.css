@@ -3,3 +3,12 @@
 * {
     font-family: "JetBrains Mono", monospace;
 }
+
+.grow {
+    flex-grow: 1;
+}
+
+.fill {
+    width: 100%;
+    height: 100%;
+}
