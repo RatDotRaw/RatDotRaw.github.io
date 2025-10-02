@@ -148,7 +148,6 @@ const Terminal: React.FC = () => {
     <div
       style={{
         height: "100%",
-        backgroundColor: "black",
         color: "white",
         fontFamily: "monospace",
         fontSize: "14px",
