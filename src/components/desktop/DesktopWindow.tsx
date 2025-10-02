@@ -138,8 +138,10 @@ const DesktopWindow = ({
       </div>
 
       {/* Window Content */}
-      <div className={`${styles.windowBody}`}>
-        <window.component />
+      <div className={styles.windowBodyCenter}>
+        <div className={`${styles.windowBody}`}>
+          <window.component />
+        </div>
       </div>
 
       {/* Resize Handles */}

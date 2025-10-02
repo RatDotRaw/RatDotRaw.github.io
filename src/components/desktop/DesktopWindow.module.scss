@@ -19,9 +19,16 @@
         z-index: 100;
     }
 
+    .windowBodyCenter {
+        flex:1;
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .windowBody {
         flex: 1;
-        overflow: scroll;
         display: flex;
         flex-direction: column;
     }
