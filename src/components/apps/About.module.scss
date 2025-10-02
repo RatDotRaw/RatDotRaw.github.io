@@ -53,3 +53,14 @@ img {
     font-size: 2rem;
 }
 
+.footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+        max-width: 32px;
+    }
+}
