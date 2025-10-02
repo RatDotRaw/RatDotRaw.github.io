@@ -16,9 +16,13 @@ const About: React.FC = () => {
       text: "LinkedIn",
       subtext: "@staf-dierickx",
       icon: "/icons/LI-In-Bug.png"
+    },
+    {
+      href: "mailto:staf.dierickx@gmail.com",
+      text: "e-mail",
+      subtext: "staf.dierickx@gmail.com",
     }
   ] 
-
 
   return (
     <div className={styles.flex}>
@@ -30,11 +34,20 @@ const About: React.FC = () => {
           <h1>Staf Dierickx</h1>
         </header>
         <div style={{ gridArea: "body" }}>
-          <p>I always like to learn new things!</p>
-          <p>Bla bla bla...</p>
+          <p>I'm an independent learner with a strong motivation to understand and apply technology and innovation.</p>
+          <p>I have built up much of my knowledge myself and strengthened it through training.</p>
+          <p>I often notice that I have already gone beyond the basics.</p>
+          <p>I have a passion for design and programming and spend a lot of time on this.</p>
         </div>
       </div>
-
+      <div>
+        <h2>Skills</h2>
+        <div
+          className={styles.subBox}
+        >
+          <p>p</p>
+        </div>
+      </div>
       <div>
         <h2>Links</h2>
         <div
@@ -44,21 +57,6 @@ const About: React.FC = () => {
           }}
         >
           <LinkList links={links}/>
-
-          {/* <ul>
-            <li>
-              <a href="">test</a>
-            </li>
-            <li>
-              <a href="">test</a>
-            </li>
-            <li>
-              <a href="">test</a>
-            </li>
-            <li>
-              <a href="">test</a>
-            </li>
-          </ul> */}
         </div>
       </div>
       <div className={styles.footer}>

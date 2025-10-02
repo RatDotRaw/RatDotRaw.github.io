@@ -19,7 +19,7 @@ function LinkList({ links }: LinkListProps) {
           key={index}
           href={link.href}
         >
-            {link.icon && <img src={link.icon} alt="" />}
+             <img src={link.icon || "/icons/link-external.svg"} alt="" />
             <p className={styles.bold}>{link.text}</p>
             {link.subtext && (
                 <p className="text-sm opacity-80">{link.subtext}</p>
