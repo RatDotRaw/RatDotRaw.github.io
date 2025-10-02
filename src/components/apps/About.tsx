@@ -9,13 +9,13 @@ const About: React.FC = () => {
       href: "https://github.com/RatDotRaw/",
       text: "Github",
       subtext: "@RatDotRaw",
-      icon: "/icons/github-mark-white.svg"
+      icon: "/icons/logos/github-mark-white.svg"
     },
     {
       href: "https://www.linkedin.com/in/staf-dierickx/",
       text: "LinkedIn",
       subtext: "@staf-dierickx",
-      icon: "/icons/LI-In-Bug.png"
+      icon: "/icons/logos/LI-In-Bug.png"
     },
     {
       href: "mailto:staf.dierickx@gmail.com",
@@ -60,7 +60,7 @@ const About: React.FC = () => {
         </div>
       </div>
       <div className={styles.footer}>
-        <img src="/icons/react.svg" alt="" />
+        <img src="/icons/logos/react.svg" alt="" />
         <p>Made using react by yours truly.</p>
         <p>Check out the source code on <a href="https://github.com/RatDotRaw/RatDotRaw.github.io">Github</a></p>
       </div>
