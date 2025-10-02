@@ -62,7 +62,7 @@ const About: React.FC = () => {
       <div className={styles.footer}>
         <img src="/icons/logos/react.svg" alt="" />
         <p>Made using react by yours truly.</p>
-        <p>Check out the source code on <a href="https://github.com/RatDotRaw/RatDotRaw.github.io">Github</a></p>
+        <p>Check out the source code on <a href="https://github.com/RatDotRaw/RatDotRaw.github.io/tree/react-new">Github</a></p>
       </div>
     </div>
   )
