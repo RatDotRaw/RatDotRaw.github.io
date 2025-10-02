@@ -104,7 +104,7 @@ export const WindowManagerProvider = ({
               ...window,
               position: {
                 x: x,
-                y: y,
+                y: y>= 0? y : 0,
               }
             }
           : window
