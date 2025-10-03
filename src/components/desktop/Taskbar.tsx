@@ -5,9 +5,6 @@ import { useWindowManager } from "../../contexts/WindowManagerContext";
 
 interface TaskbarProps {
   windows: WindowState[];
-  activeWindowId: string | null;
-  onWindowFocus: (id: string) => void;
-  onWindowMinimize: (id: string) => void;
   onStartMenuToggle: () => void;
   isStartMenuOpen: boolean;
 }
@@ -25,7 +22,6 @@ const Taskbar: React.FC<TaskbarProps> = ({
    } = useWindowManager()
 
   const taskbarButtonAction = (window: WindowState) => {
-    console.log("win")
     if (activeWindowId == window.id) {
       minimizeWindow(window.id, true)
     } else {
@@ -34,6 +30,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
     }
   }
   
+  // set clock
   useEffect(() => {
     setInterval(() => {
       const dateObject = new Date();

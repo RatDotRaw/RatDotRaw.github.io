@@ -73,13 +73,7 @@ export default function Desktop() {
         windows={windows}
         onStartMenuToggle={toggleStartMenu}
         isStartMenuOpen={isStartMenuOpen} 
-        activeWindowId={null} 
-        onWindowFocus={function (id: string): void {
-          throw new Error("Function not implemented.")
-        } } 
-        onWindowMinimize={function (id: string): void {
-          throw new Error("Function not implemented.")
-        } }/>
+      />
     </div>
   )
 }

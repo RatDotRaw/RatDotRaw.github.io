@@ -1,5 +1,5 @@
 import React from "react";
-import type { AppInfo } from "../types/types";
+import type { AppInfo } from "../../types/types";
 import styles from "./StartMenu.module.scss";
 
 interface StartMenuProps {
@@ -16,7 +16,7 @@ const StartMenu: React.FC<StartMenuProps> = ({
   return (
     <div className={styles.startMenu} onClick={(e) => e.stopPropagation()}>
       {/* Start Menu Header */}
-      <div className={styles.header}>Start</div>
+      <div className={styles.header}>App launcher</div>
 
       {/* App List */}
       <div className={styles.appList}>
