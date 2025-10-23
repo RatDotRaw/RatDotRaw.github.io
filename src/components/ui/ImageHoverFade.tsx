@@ -1,3 +1,4 @@
+import type React from "react";
 import styles from "./ImageHoverFade.module.scss"
 
 type ImageHoverParams = {
@@ -7,7 +8,7 @@ type ImageHoverParams = {
   classNames?: string;
 };
 
-const ImageHoverFade = ({ img1, img2, fadeDuration, classNames }: ImageHoverParams) => {
+const ImageHoverFade: React.FC<ImageHoverParams> = ({ img1, img2, fadeDuration, classNames }: ImageHoverParams) => {
   return (
     <div 
       className={`${styles.imgcontainer} ${classNames}`}

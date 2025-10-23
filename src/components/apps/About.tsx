@@ -1,6 +1,7 @@
 import type React from "react"
 import styles from "./About.module.scss"
 import ImageHoverFade from "../ui/ImageHoverFade"
+import RatingCard from "../ui/RatingCard"
 import LinkList from "../ui/LinkList"
 
 const About: React.FC = () => {
@@ -26,9 +27,7 @@ const About: React.FC = () => {
 
   return (
     <div className={styles.flex}>
-      <img src="" alt="" />
       <div className={`${styles.subBox} ${styles.grid}`}>
-        {/* <img className={styles.slowfade} src="cropped.png" alt="" /> */}
         <ImageHoverFade img1="/cropped.png" img2="/cropped-cool.png" fadeDuration={5000} classNames="fill" />
         <header>
           <p>Hi, this is</p>
@@ -46,7 +45,7 @@ const About: React.FC = () => {
         <div
           className={styles.subBox}
         >
-          <p>p</p>
+          <RatingCard img="/icons/logos/react.svg" text="react" rating={5} />
         </div>
       </div>
       <div>
