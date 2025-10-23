@@ -1,0 +1,22 @@
+@use "../../styles/variables" as *;
+
+.ratingContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 8rem;
+    height: 8rem;
+    background-color: red;
+
+    p {
+        margin-top: 0.5rem;
+        font-weight: 800;
+    }
+
+    img {
+        max-width: 5rem;
+        max-height: 5rem;
+        width: 100%;
+    }
+}
