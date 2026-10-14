@@ -1,10 +1,10 @@
-import type React from "react"
+import type { FunctionComponent } from "preact"
 import styles from "./About.module.scss"
-import ImageHoverFade from "../ui/ImageHoverFade"
-import RatingCard from "../ui/RatingCard"
-import LinkList from "../ui/LinkList"
+import ImageHoverFade from "../ui/ImageHoverFade.tsx"
+import RatingCard from "../ui/RatingCard.tsx"
+import LinkList from "../ui/LinkList.tsx"
 
-const About: React.FC = () => {
+const About: FunctionComponent = () => {
   const links = [
     {
       href: "https://github.com/RatDotRaw/",

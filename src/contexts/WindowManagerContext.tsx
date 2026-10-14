@@ -1,36 +1,33 @@
-import {
-  createContext,
-  useContext,
-  useCallback,
-  useState,
-  type ReactNode,
-} from "react"
-import type { ResizeDirection, WindowState } from "../types/types"
-import { apps } from "../data/apps"
+import { createContext, type FunctionComponent } from "preact";
+
+import type { ResizeDirection, WindowState } from "../types/types";
+import { useCallback, useContext, useState } from "preact/hooks";
+import { apps } from "../data/apps";
 
 type WindowManagerContextType = {
-  windows: WindowState[]
-  activeWindowId: string | null
-  openApp: (appId: string) => void
-  addWindow: (config: Omit<WindowState, "id">) => string
-  removeWindow: (id: string) => void
-  focusWindow: (id: string) => void
-  moveWindow: (id: string, x: number, y: number) => void
-  minimizeWindow: (id: string, minimize: boolean) => void
-  resizeWindow: (id: string, width: number, height: number) => void
-  resizeWindowByDelta: (id: string, width: number, height: number, direction: ResizeDirection) => void
-}
+  windows: WindowState[];
+  activeWindowId: string | null;
+  openApp: (appId: string) => void;
+  addWindow: (config: Omit<WindowState, "id">) => string;
+  removeWindow: (id: string) => void;
+  focusWindow: (id: string) => void;
+  moveWindow: (id: string, x: number, y: number) => void;
+  minimizeWindow: (id: string, minimize: boolean) => void;
+  resizeWindow: (id: string, width: number, height: number) => void;
+  resizeWindowByDelta: (
+    id: string,
+    width: number,
+    height: number,
+    direction: ResizeDirection,
+  ) => void;
+};
 
 const WindowManagerContext = createContext<WindowManagerContextType | null>(
-  null
-)
+  null,
+);
 
 // A provider component
-export const WindowManagerProvider = ({
-  children,
-}: {
-  children: ReactNode
-}) => {
+export const WindowManagerProvider: FunctionComponent = ({ children }) => {
   // Paste your current useWindowManager logic here, but return the object directly
   const [windows, setWindows] = useState<WindowState[]>([])
   const [activeWindowId, setActiveWindowId] = useState<string | null>(null)
@@ -58,11 +55,6 @@ export const WindowManagerProvider = ({
   const addWindow = useCallback((windowConfig: Omit<WindowState, "id">) => {
     const id = `window-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`
     const newWindow: WindowState = { ...windowConfig, id }
-
-    // resize to fit desktop
-    // if (desktopRef.current) {
-    //   const bounds = desktopRef.current.getBoundingClientRect();
-    // }
 
     setWindows((prev) => [...prev, newWindow])
     setActiveWindowId(id)
@@ -239,8 +231,8 @@ export const WindowManagerProvider = ({
     <WindowManagerContext.Provider value={value}>
       {children}
     </WindowManagerContext.Provider>
-  )
-}
+  );
+};
 
 // custom hook for easy access to WindowManagerContext
 export const useWindowManager = () => {

@@ -1,4 +1,4 @@
-import React from "react";
+import type { FunctionComponent } from "preact";
 import type { AppInfo } from "../../types/types";
 import styles from "./StartMenu.module.scss";
 
@@ -8,7 +8,7 @@ interface StartMenuProps {
   onClose: () => void;
 }
 
-const StartMenu: React.FC<StartMenuProps> = ({
+const StartMenu: FunctionComponent<StartMenuProps> = ({
   apps,
   onAppLaunch,
   // onClose,

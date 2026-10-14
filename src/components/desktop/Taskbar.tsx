@@ -1,15 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "preact/hooks";
+import type { FunctionComponent } from "preact";
 import type { WindowState } from "../../types/types";
 import styles from "./Taskbar.module.scss";
 import { useWindowManager } from "../../contexts/WindowManagerContext";
 
 interface TaskbarProps {
   windows: WindowState[];
-  onStartMenuToggle: () => void;
+  onStartMenuToggle: (e: MouseEvent) => void;
   isStartMenuOpen: boolean;
 }
 
-const Taskbar: React.FC<TaskbarProps> = ({
+const Taskbar: FunctionComponent<TaskbarProps> = ({
   windows,
   onStartMenuToggle,
   isStartMenuOpen,
@@ -49,6 +50,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
     <div className={styles.taskBar}>
       {/* Start Button */}
       <button
+        type="button"
         onClick={onStartMenuToggle}
         className={styles.startButton}
         style={{
@@ -64,6 +66,7 @@ const Taskbar: React.FC<TaskbarProps> = ({
         {windows.map((window) => (
           <button
             key={window.id}
+            type="button"
             onClick={() => taskbarButtonAction(window)}
             className={`${styles.windowTab} ${
               activeWindowId === window.id ? styles.active : styles.inactive

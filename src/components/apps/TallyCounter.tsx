@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "preact/hooks";
+import type { FunctionComponent } from "preact";
 
-const TallyCounter: React.FC = () => {
+const TallyCounter: FunctionComponent = () => {
     const [count, setCount] = useState(0);
 
     const increment = () => setCount(count + 1);

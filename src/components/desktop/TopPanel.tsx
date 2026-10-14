@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "preact/hooks";
+import type { FunctionComponent } from "preact";
 import styles from "./TopPanel.module.scss";
 
-const TopBar: React.FC = () => {
+const TopBar: FunctionComponent = () => {
     const [time, setTime] = useState<string>("");
 
     useEffect(() => {

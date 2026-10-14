@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "preact/hooks"
 import { useWindowManager } from "./contexts/WindowManagerContext"
 import { apps } from "./data/apps"
 import DEBackground from "./components/desktop/DEBackground"
@@ -18,8 +18,9 @@ export default function Desktop() {
     }
   }
 
-  const toggleStartMenu = () => {
-    setIsStartMenuOpen(!isStartMenuOpen)
+  const toggleStartMenu = (e: MouseEvent) => {
+    e.stopPropagation()
+    setIsStartMenuOpen(prev => !prev)
   }
 
   const closeStartMenu = () => {
@@ -27,8 +28,14 @@ export default function Desktop() {
   }
 
   useEffect(() => {
-    openApp("about-me")
-  }, [])
+    console.log("useEffect fired, windows.length:", windows.length)
+    if (windows.length === 0) {
+      console.log("No windows open, opening default About window")
+      openApp("about-me")
+    } else {
+      console.log("Windows already exist, skipping default open:", windows.map(w => w.id))
+    }
+  }, []) 
 
   return (
     <div

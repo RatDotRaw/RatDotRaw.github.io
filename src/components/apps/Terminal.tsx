@@ -1,4 +1,9 @@
-import React, { useState, useRef, useEffect } from "react";
+import type {
+  FunctionComponent,
+  TargetedKeyboardEvent,
+  TargetedSubmitEvent,
+} from "preact";
+import { useEffect, useRef, useState } from "preact/hooks";
 
 interface CommandHistoryItem {
   id: number;
@@ -6,7 +11,7 @@ interface CommandHistoryItem {
   output: string;
 }
 
-const Terminal: React.FC = () => {
+const Terminal: FunctionComponent = () => {
   const [input, setInput] = useState("");
   const [history, setHistory] = useState<CommandHistoryItem[]>([
     { id: 1, command: "", output: "Welcome to ReactOS Terminal v1.0" },
@@ -74,7 +79,7 @@ const Terminal: React.FC = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: TargetedSubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (input.trim() === "" && history.length > 0) {
@@ -99,7 +104,7 @@ const Terminal: React.FC = () => {
     setHistoryIndex(-1);
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: TargetedKeyboardEvent<HTMLInputElement>) => {
     if (e.key === "ArrowUp") {
       e.preventDefault();
       if (commandHistory.length > 0) {
@@ -196,7 +201,7 @@ const Terminal: React.FC = () => {
           ref={inputRef}
           type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => setInput(e.currentTarget.value)}
           onKeyDown={handleKeyDown}
           style={{
             backgroundColor: "transparent",
@@ -210,7 +215,7 @@ const Terminal: React.FC = () => {
           }}
           autoFocus
           autoComplete="off"
-          spellCheck="false"
+          spellcheck={false}
         />
       </form>
 

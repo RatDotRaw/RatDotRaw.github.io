@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect } from "preact/hooks"
 import type { ResizeDirection, WindowState } from "../../types/types"
 import styles from "./DesktopWindow.module.scss"
 import { useWindowManager } from "../../contexts/WindowManagerContext"
@@ -27,65 +27,50 @@ const DesktopWindow = ({
   const resizeStartPos = useRef({ x: 0, y: 0 })
   const windowRef = useRef<HTMLDivElement>(null)
 
-  // Drag functionality
-  const handleTitleBarMouseDown = (e: React.MouseEvent) => {
-    if (e.target !== e.currentTarget) return
+  // Latest handler stored in a ref so document listeners never go stale
+  const handleMouseMoveRef = useRef<(e: MouseEvent) => void>()
+  const handleMouseUpRef = useRef<() => void>()
 
-    dragStartPos.current = {
-      x: e.clientX - x,
-      y: e.clientY - y,
-    }
-    setIsDragging(true)
-  }
-
-  const handleMouseMove = (e: MouseEvent) => {
+  handleMouseMoveRef.current = (e: MouseEvent) => {
     if (isDragging) {
-      moveWindow(
-        window.id,
-        e.clientX - dragStartPos.current.x,
-        e.clientY - dragStartPos.current.y
-      )
+      moveWindow(window.id, e.clientX - dragStartPos.current.x, e.clientY - dragStartPos.current.y)
     } else if (isResizing) {
-      const deltaX = e.clientX - resizeStartPos.current.x
-      const deltaY = e.clientY - resizeStartPos.current.y
-
-      resizeWindowByDelta(window.id, deltaX, deltaY, isResizing)
-      resizeStartPos.current = {
-        x: e.clientX,
-        y: e.clientY,
-      }
+      resizeWindowByDelta(window.id, e.clientX - resizeStartPos.current.x, e.clientY - resizeStartPos.current.y, isResizing)
+      resizeStartPos.current = { x: e.clientX, y: e.clientY }
     }
   }
 
-  const handleMouseUp = () => {
+  handleMouseUpRef.current = () => {
     setIsDragging(false)
     setIsResizing(null)
   }
 
-  const handleResizeMouseDown = (
-    e: React.MouseEvent,
-    direction: ResizeDirection
-  ) => {
-    e.stopPropagation()
-    resizeStartPos.current = {
-      x: e.clientX,
-      y: e.clientY,
-    }
-    setIsResizing(direction)
-  }
-
   useEffect(() => {
     if (isDragging || isResizing) {
-      document.addEventListener("mousemove", handleMouseMove)
-      document.addEventListener("mouseup", handleMouseUp)
+      const onMouseMove = (e: MouseEvent) => handleMouseMoveRef.current(e)
+      const onMouseUp = () => handleMouseUpRef.current()
 
-      // cleanup func
+      document.addEventListener("mousemove", onMouseMove)
+      document.addEventListener("mouseup", onMouseUp)
+
       return () => {
-        document.removeEventListener("mousemove", handleMouseMove)
-        document.removeEventListener("mouseup", handleMouseUp)
+        document.removeEventListener("mousemove", onMouseMove)
+        document.removeEventListener("mouseup", onMouseUp)
       }
     }
   }, [isDragging, isResizing])
+
+  const handleTitleBarMouseDown = (e: MouseEvent) => {
+    if (e.target !== e.currentTarget) return
+    dragStartPos.current = { x: e.clientX - x, y: e.clientY - y }
+    setIsDragging(true)
+  }
+
+  const handleResizeMouseDown = (e: MouseEvent, direction: ResizeDirection) => {
+    e.stopPropagation()
+    resizeStartPos.current = { x: e.clientX, y: e.clientY }
+    setIsResizing(direction)
+  }
 
   if (window.minimized) {
     return null

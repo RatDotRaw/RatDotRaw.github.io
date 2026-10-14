@@ -1,6 +1,7 @@
+import type { FunctionComponent } from "preact";
 import styles from "./DEBackground.module.scss";
 
-const DEBackground: React.FC = () => {
+const DEBackground: FunctionComponent = () => {
   return (
     <>
       <div className={styles.backgroundWaves}>

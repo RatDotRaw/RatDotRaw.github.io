@@ -1,6 +1,6 @@
-import React from "react";
+import type { FunctionComponent } from "preact";
 
-const HelloWorld: React.FC = () => {
+const HelloWorld: FunctionComponent = () => {
     return (
         <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
             <h2>Hello World!</h2>

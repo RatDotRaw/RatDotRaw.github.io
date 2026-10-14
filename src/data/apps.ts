@@ -1,8 +1,8 @@
-import type { AppInfo } from '../types/types';
-import About from '../components/apps/About';
-import HelloWorld from '../components/apps/HelloWorld';
-import TallyCounter from '../components/apps/TallyCounter';
-import Terminal from '../components/apps/Terminal';
+import type { AppInfo } from '../types/types.ts';
+import About from '../components/apps/About.tsx';
+import HelloWorld from '../components/apps/HelloWorld.tsx';
+import TallyCounter from '../components/apps/TallyCounter.tsx';
+import Terminal from '../components/apps/Terminal.tsx';
 
 export const apps: AppInfo[] = [
   {
