@@ -36,8 +36,8 @@ const Taskbar: FunctionComponent<TaskbarProps> = ({
     setInterval(() => {
       const dateObject = new Date();
 
-      const hour = dateObject.getHours();
-      const minute = dateObject.getMinutes();
+      const hour = String(dateObject.getHours()).padStart(2, "0");
+      const minute = String(dateObject.getMinutes()).padStart(2, "0");
       // const second = dateObject.getSeconds();
 
       const currentTime = hour + ":" + minute; // + " : " + second;

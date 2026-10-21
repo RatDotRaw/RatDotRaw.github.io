@@ -1,6 +1,0 @@
-{
-  "allowScripts": {
-    "allow": [],
-    "deny": ["npm:@parcel/watcher@2.6.0"]
-  }
-}

@@ -17,6 +17,7 @@ function LinkList({ links }: LinkListProps) {
       {links.map((link, index) => (
         <a
           key={index}
+          class={styles.item}
           href={link.href}
         >
              <img src={link.icon || "/icons/link-external.svg"} alt="" />

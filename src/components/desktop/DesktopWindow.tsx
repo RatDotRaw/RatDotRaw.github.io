@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "preact/hooks"
-import type { ResizeDirection, WindowState } from "../../types/types"
+import type { ResizeDirection, WindowState } from "../../types/types.ts"
 import styles from "./DesktopWindow.module.scss"
-import { useWindowManager } from "../../contexts/WindowManagerContext"
+import { useWindowManager } from "../../contexts/WindowManagerContext.tsx"
 
 const DesktopWindow = ({
   window,

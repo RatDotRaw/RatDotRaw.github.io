@@ -11,7 +11,11 @@ const TopBar: FunctionComponent = () => {
             const hours = String(now.getHours()).padStart(2, "0");
             const minutes = String(now.getMinutes()).padStart(2, "0");
             const seconds = String(now.getSeconds()).padStart(2, "0");
-            setTime(`${hours}:${minutes}:${seconds}`);
+
+            // get date
+            const weekday = now.toLocaleDateString(navigator.language || "en-us", { weekday: 'long' });
+
+            setTime(`${hours}:${minutes}:${seconds} ${weekday} ${now.getDate()}/${now.getMonth() +1}`);
         };
 
         updateTime(); // initialize immediately
@@ -23,7 +27,12 @@ const TopBar: FunctionComponent = () => {
     return (
         <div className={styles.topPanel}>
             <div></div>
-            <div>{time}</div>
+            <div
+                style={{
+                    "display": "flex",
+                    "justify-content": "center",
+                }}
+            >{time}</div>
             <div></div>
         </div>
     );

@@ -60,8 +60,11 @@ const About: FunctionComponent = () => {
         </div>
       </div>
       <div className={styles.footer}>
-        <img src="/icons/logos/react.svg" alt="" />
-        <p>Made using react by yours truly.</p>
+        <div>
+          <img src="/icons/logos/vite.svg" alt="" />
+          <img src="/icons/logos/preact.svg" alt="" />
+        </div>
+        <p>Made using <b>Vite</b> & <b>Preact</b> by yours truly.</p>
         <p>Check out the source code on <a href="https://github.com/RatDotRaw/RatDotRaw.github.io/tree/react-new">Github</a></p>
       </div>
     </div>

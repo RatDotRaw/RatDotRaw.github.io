@@ -27,6 +27,11 @@ export default function Desktop() {
     setIsStartMenuOpen(false)
   }
 
+  const handleAppLaunch = (appId: string) => {
+    openApp(appId)
+    closeStartMenu()
+  }
+
   useEffect(() => {
     console.log("useEffect fired, windows.length:", windows.length)
     if (windows.length === 0) {
@@ -72,7 +77,7 @@ export default function Desktop() {
 
       {/* Start Menu */}
       {isStartMenuOpen && (
-        <StartMenu apps={apps} onAppLaunch={openApp} onClose={closeStartMenu} />
+        <StartMenu apps={apps} onAppLaunch={handleAppLaunch} onClose={closeStartMenu} />
       )}
 
       {/* Taskbar */}

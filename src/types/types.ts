@@ -15,7 +15,8 @@ export interface WindowState {
 export interface AppInfo {
     id: string;
     name: string;
-    icon: string;
+    icon: string; // emoji, or an image path (e.g. "/icons/logos/preact.svg")
+    description?: string;
     size?: { width: number, height: number}
     customWindow?: boolean,
     component: React.ComponentType;

@@ -6,13 +6,29 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  color: whitesmoke;
+h1, h2 {
+  margin-bottom: $padding-xs;
 }
 
 a {
   color: $link;
+}
+
+input[type="search"] {
+  border-radius: $border-radius;
+  border: 3px solid none;
+  width: 100%;
+  height: $panel-height;
+  background-color: $window-bg-2;
+  padding: $padding;
+
+  &:placeholder-shown {
+    color: $deselection;
+  }
+
+  &:focus {
+    border: 3px solid $accent2;
+  }
 }
 
 .desktop {

@@ -6,18 +6,18 @@
     margin: 1rem;
     // margin-top: 0;
 
-    gap: 2rem 2rem;
+    gap: $padding-xl;
 
     max-width: 800px;
 }
 
 .subBox {
     border-radius: $border-radius;
-    padding: 1rem;
+    padding: $padding;
     background-color: $window-bg-2;
 
     div {
-        margin: 0.5rem;
+        margin: $padding-xs;
         margin-left: 0;
         margin-right: 0;
     }

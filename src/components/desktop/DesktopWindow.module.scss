@@ -32,6 +32,15 @@
         display: flex;
         flex-direction: column;
     }
+
+    animation: windowIn $animation-speed ease-out;
+}
+
+@keyframes windowIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 }
 
 .titleBar {
@@ -39,7 +48,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 8px;
+    padding: 0 $padding;
     cursor: move;
     user-select: none;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.4);
